@@ -1,4 +1,0 @@
-Ceci est un test de cryptage d'un texte avec la méthode de Baptista implémentée en python.
-Elle utilise mu = 3.8 et x0 = 0.5 comme conditions initiales.
-Avec un alphabet de 256 caractères: table ascii étendue.
-Et des valeurs x_min et x_max égales à 0.2 et 0.9.
