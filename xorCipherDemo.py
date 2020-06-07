@@ -1,6 +1,6 @@
 import sys
 
-def cipher(message, key="pfa2020"):
+def cipher(message, key):
     result = ""
     for i in range(len(message)):
         chr1 = message[i]
@@ -21,12 +21,15 @@ def cipher(message, key="pfa2020"):
 
 
 message = sys.argv[1]
-key = sys.argv[2]
+try:
+	key = sys.argv[2]
+except:
+	key = "pfa2020"
 
 result = cipher(message, key)
 
 print("\n")
-print("Message: ", message)
-print("Clé: ", key)
-print("Message crypté: ", result)
+print("Message:", message)
+print("Key:", key)
+print("Encrypted message:", result)
 print("\n")
