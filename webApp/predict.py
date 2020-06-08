@@ -4,7 +4,11 @@ import pickle
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.layers import Input, LSTM, Dense
 
-with open("files/pickledInfoV4.pickle", "rb") as pickle_file:
+
+pickle_filename = "pickledInfo.pickle"
+model_filename = "xorModel.h5"
+
+with open("files/" + pickle_filename, "rb") as pickle_file:
     info = pickle.load(pickle_file)
 
 input_token_index = info["input_token_index"]
@@ -19,7 +23,7 @@ reverse_input_char_index = dict((i, char) for char, i in input_token_index.items
 reverse_target_char_index = dict((i, char) for char, i in target_token_index.items())
 
 
-model = load_model("files/xor_v4.h5")
+model = load_model("files/" + model_filename)
 
 encoder_inputs = model.input[0]
 encoder_outputs, state_h_enc, state_c_enc = model.layers[2].output
