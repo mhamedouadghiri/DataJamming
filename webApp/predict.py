@@ -4,7 +4,6 @@ import pickle
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.layers import Input, LSTM, Dense
 
-
 with open("files/pickledInfoV4.pickle", "rb") as pickle_file:
     info = pickle.load(pickle_file)
 
@@ -72,5 +71,6 @@ def process_text(input_text):
 
 	for t, char in enumerate(input_text):
 		encoder_input_data[0, t, input_token_index[char]] = 1.
+	encoder_input_data[0, t + 1:, input_token_index[' ']] = 1.
 
 	return encoder_input_data
